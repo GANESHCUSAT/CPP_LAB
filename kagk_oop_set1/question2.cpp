@@ -39,30 +39,42 @@ void area(int side1, int side2, int side3)
 
 int main()
 {
-    int length, breadth;
-    std::cout << "Enter the Length & Breadth of Rectangle\n";
-    std::cin >> length >> breadth;
-    area(length, breadth);
-
-    float radius;
-    std::cout << "\n\nEnter the Radius of the Circle\n";
-    std::cin >> radius;
-    area(radius);
-
-    float height, base1, base2;
-    std::cout << "\n\nEnter the Height and Bases of Trapezium\n";
-    std::cin >> height >> base1 >> base2;
-    area(height, base1, base2);
-
-    int side1, side2, side3;
-    std::cout << "\n\nEnter the Sides of Triangle\n";
-    std::cin >> side1 >> side2 >> side3;
-    area(side1, side2, side3);
-
-    int side;
-    std::cout << "\n\nEnter the Side of the Square\n";
-    std::cin >> side;
-    area(side);
-
+    int option;
+    std::cout << "select the shape which you want:\n";
+    std::cout << "1.enter 1 for rectangle\n2.enter 2 for circle\n3.enter 3 for trapezium \n4.enter 4 for triangle\n5.enter 5 for square\n";
+    std::cin >> option;
+    switch (option)
+    {
+    case 1:
+        int length, breadth;
+        std::cout << "Enter the Length & Breadth of Rectangle\n";
+        std::cin >> length >> breadth;
+        area(length, breadth);
+        break;
+    case 2:
+        float radius;
+        std::cout << "Enter the Radius of the Circle\n";
+        std::cin >> radius;
+        area(radius);
+        break;
+    case 3:
+        float height, base1, base2;
+        std::cout << "Enter the Height and Bases of Trapezium\n";
+        std::cin >> height >> base1 >> base2;
+        area(height, base1, base2);
+        break;
+    case 4:
+        int side1, side2, side3;
+        std::cout << "Enter the Sides of Triangle\n";
+        std::cin >> side1 >> side2 >> side3;
+        area(side1, side2, side3);
+        break;
+    case 5:
+        int side;
+        std::cout << "Enter the Side of the Square\n";
+        std::cin >> side;
+        area(side);
+        break;
+    }
     return 0;
 }
