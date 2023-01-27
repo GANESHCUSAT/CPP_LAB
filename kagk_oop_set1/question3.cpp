@@ -10,18 +10,16 @@ private:
     int static count;
 
 public:
-    void new_acc(void);
+    int new_acc(int acc_no);
     void withdraw(void);
     void deposit(void);
     void balance_enquiry(void);
-    void account_statement(void);
+    int account_statement(int acc_no);
 };
 int bank::count;
 
-void bank::new_acc()
+int bank::new_acc(int acc_no)
 {
-    count++;
-    acc_no = count;
     cout << "enter your name: ";
     cin >> cust_name;
     cout << "enter the type of the account\nenter S for savings\nenter c for cureent account\nenter: ";
@@ -38,7 +36,7 @@ void bank::withdraw()
     if ((balance - amount) > 500)
     {
         balance = balance - amount;
-        cout << "Rs." << amount << "is withdrawn";
+        cout << "Rs." << amount << " is withdrawn";
         cout << "\nyour current balance=" << balance;
     }
     else
@@ -60,7 +58,7 @@ void bank::balance_enquiry()
     cout << "current balance is" << balance;
 }
 
-void bank::account_statement()
+int bank::account_statement(int acc_no)
 {
     cout << "********\n";
     cout << "Your Account Statement is ";
@@ -78,57 +76,46 @@ int main()
 
     do
     {
-        cout << "*****MAIN MENU*****\n";
+        cout << "\n*****MAIN MENU*****\n";
         cout << "1.enter 1 for New Account\n2.enter 2 to Withdraw\n3.enter 3 to Deposit\n4.enter 4 to check balance\n5.enter 5 for Account Statement\nenter: ";
         cin >> option;
 
         if (option == 1)
         {
-
-            customer[count + 1].new_acc();
+            count++;
+            acc_no = count;
+            customer[acc_no].new_acc(acc_no);
         }
         else if (option == 2)
         {
             cout << "kindly please enter your account number: ";
             cin >> acc_no;
-            for (int i = acc_no; i == acc_no; i++)
-            {
-                customer[i].withdraw();
-            }
+            customer[acc_no].withdraw();
         }
         else if (option == 3)
         {
             cout << "kindly please enter your account number: ";
             cin >> acc_no;
-            for (int i = acc_no; i == acc_no; i++)
-            {
-                customer[i].deposit();
-            }
+            customer[acc_no].deposit();
         }
         else if (option == 4)
         {
             cout << "kindly please enter your account number: ";
             cin >> acc_no;
-            for (int i = acc_no; i == acc_no; i++)
-            {
-                customer[i].balance_enquiry();
-            }
+            customer[acc_no].balance_enquiry();
         }
         else if (option == 5)
         {
             cout << "kindly please enter your account number: ";
             cin >> acc_no;
-            for (int i = acc_no; i == acc_no; i++)
-            {
-                customer[i].account_statement();
-            }
+            customer[acc_no].account_statement(acc_no);
         }
         else
         {
             cout << "invalid input";
         }
 
-        cout << "\ndo you want to continue(enter yes or no): ";
+        cout << "\n\ndo you want to continue(enter yes or no): ";
         cin >> choice;
     } while (choice == "yes");
 
