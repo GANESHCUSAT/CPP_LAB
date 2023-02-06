@@ -1,49 +1,55 @@
-#include <iostream>
-
-class Time
+#include<iostream>
+#include<cstring>
+using namespace std;
+class strings
 {
-private:
-    int hours;
-    int minutes;
-    int seconds;
-
-public:
-    void input(void);
-    void add(Time, Time);
-    void display(void);
+    private:
+        string name,result;
+        int lens1,lens2,len;
+    public:
+        void input(void);
+        int length (strings);
+        void compare(strings,strings);
+        void concatenate(strings,strings);
 };
-void Time::input()
+void strings::input()
 {
-    std::cout << "\nenter the time in hours: ";
-    std::cin >> hours;
-    std::cout << "\nenter the time in minutes: ";
-    std::cin >> minutes;
-    std::cout << "\nenter the time in seconds: ";
-    std::cin >> seconds;
+    cout<<"\nenter the string: ";
+    cin>>name;
 }
-void Time::add(Time t1, Time t2)
-{
-    seconds = t1.seconds + t2.seconds;
-    minutes = seconds / 60;
-    seconds = seconds % 60;
-    minutes = minutes + t1.minutes + t2.minutes;
-    hours = minutes / 60;
-    minutes = minutes = minutes % 60;
-    hours = hours + t1.hours + t2.hours;
+int strings::length(strings s)
+{   name=s.name;
+    len=strlen(name);
+    cout<<"\nlength of the string "<<name<<"is: "<<len;
+    return len;
 }
-void Time::display()
+void strings::compare(strings s1,strings s2)
 {
-    std::cout << hours << " hours; " << minutes << " minutes; " << seconds << " seconds; ";
+    lens1=s1.len;
+    lens2=s2.len;
+    if (lens1>lens2)
+        {cout<<"\nthe largest string is "<< s1.name<<"of length "<<lens1;}
+    else if(lens1==lens2)
+        {cout<<"\nthe length of both the strings are same and thier length is "<<lens1;}
+    else
+        {cout<<"\nthe largest string is "<< s2.name<<"of length "<<lens1;}
+
+}
+void strings::concatenate(strings a,strings b);
+{
+	strcpy(result, a.name"\n");
+	strcat(result, b.name);
+	cout<<"\nthe concatenated result is" <<name;
 }
 int main()
 {
-    Time t1, t2, t3;
-    std::cout << "**TIME_1**";
-    t1.input();
-    std::cout << "**TIME_2**";
-    t2.input();
-    t3.add(t1, t2);
-    std::cout << "\n***RESULT***\n";
-    t3.display();
+    strings s1,s2,s3,s4;
+    int i,j;
+    s1.input();
+    s2.input();
+    s1.length(s1);
+    s2.length(s2);
+    s3.compare(s1,s2);
+    s4.concatenate(s1,s2);
     return 0;
 }
