@@ -4,7 +4,7 @@ class student
 private:
     std::string name, grade;
     int roll_no;
-    int mark1, mark2, mark3, mrks;
+    int mark1, mark2, mark3;
 
 public:
     void input();

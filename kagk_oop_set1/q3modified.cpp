@@ -7,7 +7,6 @@ private:
     int acc_no, amount;
     char acc_type;
     int balance;
-    int static count;
 
 public:
     void new_acc(int acc_no);
@@ -16,7 +15,6 @@ public:
     void balance_enquiry(void);
     int account_statement(int acc_no);
 };
-int bank::count;
 
 void bank::new_acc(int acc_no)
 {

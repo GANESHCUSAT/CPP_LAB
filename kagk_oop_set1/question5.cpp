@@ -4,7 +4,7 @@ class matrix
 {
 private:
     int **p;
-    int d1, d2;
+    int row, col;
 
 public:
     matrix(){};
@@ -13,13 +13,13 @@ public:
     {
         p[i][j] = value;
     }
-    int &put_element(int i, int j)
+    int & put_element(int i, int j)
     {
         return p[i][j];
     }
     ~matrix()
     {
-        for (int i = 0; i < d1; i++)
+        for (int i = 0; i < row; i++)
         {
             delete p[i];
         }
@@ -28,12 +28,12 @@ public:
 };
 matrix::matrix(int x, int y)
 {
-    d1 = x;
-    d2 = y;
-    p = new int *[d1];
-    for (int i = 0; i < d1; i++)
+    row = x;
+    col = y;
+    p = new int *[row];
+    for (int i = 0; i < row; i++)
     {
-        p[i] = new int[d2];
+        p[i] = new int[col];
     }
 }
 int main()

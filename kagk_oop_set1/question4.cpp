@@ -1,55 +1,79 @@
-#include<iostream>
-#include<cstring>
-using namespace std;
-class strings
-{
-    private:
-        string name,result;
-        int lens1,lens2,len;
-    public:
-        void input(void);
-        int length (strings);
-        void compare(strings,strings);
-        void concatenate(strings,strings);
-};
-void strings::input()
-{
-    cout<<"\nenter the string: ";
-    cin>>name;
-}
-int strings::length(strings s)
-{   name=s.name;
-    len=strlen(name);
-    cout<<"\nlength of the string "<<name<<"is: "<<len;
-    return len;
-}
-void strings::compare(strings s1,strings s2)
-{
-    lens1=s1.len;
-    lens2=s2.len;
-    if (lens1>lens2)
-        {cout<<"\nthe largest string is "<< s1.name<<"of length "<<lens1;}
-    else if(lens1==lens2)
-        {cout<<"\nthe length of both the strings are same and thier length is "<<lens1;}
-    else
-        {cout<<"\nthe largest string is "<< s2.name<<"of length "<<lens1;}
+#include<iostream> 
+#include<cstring> 
 
-}
-void strings::concatenate(strings a,strings b);
+using namespace std; 
+class strings 
 {
-	strcpy(result, a.name"\n");
-	strcat(result, b.name);
-	cout<<"\nthe concatenated result is" <<name;
-}
-int main()
-{
-    strings s1,s2,s3,s4;
-    int i,j;
-    s1.input();
-    s2.input();
-    s1.length(s1);
-    s2.length(s2);
-    s3.compare(s1,s2);
-    s4.concatenate(s1,s2);
-    return 0;
+    private: 
+        char *str; 
+        int length; 
+    public:
+        strings() 
+            { 
+                length=0; 
+                str=new char[length+1]; 
+            } 
+        strings(const char *s) 
+            { 
+                length=strlen(s); 
+                str=new char[length+1]; 
+                strcpy(str,s); 
+            } 
+        void concatinate(strings a,strings b); 
+        void compare(strings a,strings b); 
+        void display_length() 
+            { 
+                cout<<length<<endl; 
+            } 
+}; 
+void strings::concatinate(strings a,strings b) 
+{ 
+   length=a.length+b.length; 
+   delete str; 
+   str=new char[length+1]; 
+   strcpy(str,a.str);
+   strcat(str," ");
+   strcat(str,b.str); 
+   cout<<str; 
+} 
+void strings::compare(strings a,strings b) 
+{ 
+ if(a.length>b.length) 
+ { 
+   cout<<a.str<<" is the larger string."; 
+ } 
+ else if(b.length>a.length) 
+ { 
+   cout<<b.str<<" is the larger stings."; 
+ } 
+ else 
+   cout<<" Both strings are of equal length."; 
+ } 
+int main() 
+{ 
+  string x,y;
+  cout<<"Enter the first string: ";
+  cin>>x;
+  cout<<"Enter the second string: ";
+  cin>>y;
+  const char *s1=x.c_str();
+  const char *s2=y.c_str();
+  strings a(s1);
+  strings b(s2);
+  strings c;
+  cout<<"-----------RESULT------------\n";
+  cout<<"First string: "<<s1<<endl;
+  cout<<"Second String: "<<s2<<endl;
+  cout<<"Strings after concatination: ";
+  c.concatinate(a,b);
+  cout<<endl;
+  cout<<"The length of the first  string is: ";
+  a.display_length();
+  cout<<"The length of the second string is: ";
+  b.display_length();
+  cout<<"The length of the concatinated string is: ";
+  c.display_length();
+  cout<<"The result of the comparission: "<<"\n";
+  c.compare(a,b);
+  return 0;
 }

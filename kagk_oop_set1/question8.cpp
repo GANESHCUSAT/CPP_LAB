@@ -37,9 +37,9 @@ int main()
 {
     int real, imag;
     cout << "enter the first complex number as real and imaginary respectively: ";
-    cin >> real >> imag;
-    complex a(real, imag);
-    cout << "enter the first complex number as real and imaginary respectively: ";
+    cin >> real,imag;
+    complex a(real);
+    cout << "enter the second complex number as real and imaginary respectively: ";
     cin >> real >> imag;
     complex b(real, imag);
     complex c;
