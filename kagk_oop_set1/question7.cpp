@@ -13,14 +13,14 @@ public:
     {
         p[i][j] = value;
     }
-    int put_element(int i, int j)
+    int &put_element(int i, int j)
     {
         return p[i][j];
     }
     matrix recieve(void);
     void show(void);
-    void sum(matrix, matrix);
-    void mult(matrix, matrix);
+    void sum(matrix &, matrix &);
+    void mult(matrix &, matrix &);
     void transpose(matrix);
     void trace(matrix);
 };
@@ -54,52 +54,73 @@ matrix matrix::recieve()
     }
     return a;
 }
-void matrix::sum(matrix a, matrix b)
+void matrix::sum(matrix &a, matrix &b)
 {
-    matrix c(a.row, a.col);
-    int value;
-    for (int i = 0; i < a.row; i++)
+    if (a.row == b.row & a.col == b.col)
     {
-        for (int j = 0; j < a.col; j++)
+        matrix c(a.row, a.col);
+        int value;
+        for (int i = 0; i < a.row; i++)
         {
-            value = a.put_element(i, j) + b.put_element(i, j);
-            c.get_element(i, j, value);
-        }
-    }
-    c.show();
-}
-void matrix::mult(matrix a, matrix b)
-{
-    matrix c(a.row, b.col);
-    int value = 0;
-    for (int i = 0; i < a.row; i++)
-    {
-        for (int j = 0; j < b.col; j++)
-        {
-            int value = 0;
-            for (int k = 0; k < a.col; k++)
+            for (int j = 0; j < a.col; j++)
             {
-                value = value + a.put_element(i, k) * b.put_element(k, j);
+                value = a.put_element(i, j) + b.put_element(i, j);
                 c.get_element(i, j, value);
             }
         }
+        c.show();
     }
-    c.show();
+    else
+    {
+        cout << "invalid input";
+    }
+}
+void matrix::mult(matrix &a, matrix &b)
+{
+    if (a.col == b.row)
+    {
+        matrix c(a.row, b.col);
+        int value = 0;
+        for (int i = 0; i < a.row; i++)
+        {
+            for (int j = 0; j < b.col; j++)
+            {
+                int value = 0;
+                for (int k = 0; k < a.col; k++)
+                {
+                    value = value + a.put_element(i, k) * b.put_element(k, j);
+                    c.get_element(i, j, value);
+                }
+            }
+        }
+        c.show();
+    }
+    else
+    {
+        cout << "invalid input";
+    }
 }
 void matrix::trace(matrix a)
 {
-    int sum = 0;
-    for (int i = 0; i < a.row; i++)
+    if (a.row == a.col)
     {
-        for (int j = 0; j < a.col; j++)
+        int sum = 0;
+        for (int i = 0; i < a.row; i++)
         {
-            if (i == j)
+            for (int j = 0; j < a.col; j++)
             {
-                sum = sum + p[i][j];
+                if (i == j)
+                {
+                    sum = sum + p[i][j];
+                }
             }
         }
+        cout << "result= " << sum;
     }
-    cout << sum;
+    else
+    {
+        cout << "invalid input";
+    }
 }
 void matrix::transpose(matrix a)
 {
@@ -109,8 +130,8 @@ void matrix::transpose(matrix a)
     {
         for (int j = 0; j < a.col; j++)
         {
-            value = p[j][i];
-            c.get_element(i, j, value);
+            value = p[i][j];
+            c.get_element(j, i, value);
         }
     }
     c.show();
@@ -136,7 +157,7 @@ int main()
     do
     {
         cout << "***MAIN MENU***\n";
-        cout << "1. enter 1 for addition of two matrix\n2. enter 2 to multiply two matrix\n3. enter 3 to find the transpose of the matrix\n4. neter 4 to find the trace of the matrix.\n";
+        cout << "1. enter 1 for addition of two matrix\n2. enter 2 to multiply two matrix\n3. enter 3 to find the transpose of the matrix\n4. enter 4 to find the trace of the matrix.\n";
         cin >> option;
         if (option == 1)
         {
@@ -147,22 +168,22 @@ int main()
         }
         else if (option == 2)
         {
-            matrix a4, a5, a6;
-            a5 = a4.recieve();
-            a6 = a4.recieve();
-            a4.mult(a5, a6);
+            matrix a1, a2, a3, a4;
+            a2 = a1.recieve();
+            a3 = a1.recieve();
+            a4.mult(a2, a3);
         }
         else if (option == 3)
         {
-            matrix a7, a8;
-            a8 = a7.recieve();
-            a7.transpose(a8);
+            matrix m1, m2;
+            m2 = m1.recieve();
+            m2.transpose(m2);
         }
         else if (option == 4)
         {
-            matrix a9, a10;
-            a10 = a9.recieve();
-            a9.trace(a10);
+            matrix a1, a2;
+            a2 = a1.recieve();
+            a2.trace(a2);
         }
         else
         {
