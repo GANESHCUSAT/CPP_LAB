@@ -77,7 +77,7 @@ void bank::balance_enquiry()
     std::cin >> userpass;
     if (userpass == password)
     {
-        std::cout << "current balance is" << balance;
+        std::cout << "current balance is: " << balance;
     }
     else
     {

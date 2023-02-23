@@ -1,5 +1,5 @@
 #include <iostream>
-using namespace std;
+
 class objects
 {
 private:
@@ -16,32 +16,32 @@ public:
     }
     static show_count()
     {
-        cout << "number of objects created= " << count;
+        std::cout << "number of objects created= " << count;
     }
 };
 int objects::count = 0;
 int main()
 {
     int choice;
-    string option;
+    std::string option;
     objects object;
     do
     {
-        cout << "enter your choice\n";
-        cout << "1 to  add an object\n";
-        cout << "2 to  remove an object\n";
-        cout << "3 to  display no. of objects\n";
-        cout << "4 to  quit\n";
-        cin >> choice;
+        std::cout << "enter your choice\n";
+        std::cout << "1 to  add an object\n";
+        std::cout << "2 to  remove an object\n";
+        std::cout << "3 to  display no. of objects\n";
+        std::cout << "4 to  quit\n";
+        std::cin >> choice;
         switch (choice)
         {
         case 1:
             object.new_object();
-            cout << "\nan object created";
+            std::cout << "\nan object created";
             break;
         case 2:
             object.del_object();
-            cout << "\nan object removed";
+            std::cout << "\nan object removed";
             break;
         case 3:
             object.show_count();
@@ -49,10 +49,10 @@ int main()
         case 4:
             return 0;
         default:
-            cout << "invalid entry\n";
+            std::cout << "invalid entry\n";
         }
-        cout << "\ndo you want to continue(enter yes/no): ";
-        cin >> option;
+        std::cout << "\ndo you want to continue(enter yes/no): ";
+        std::cin >> option;
     } while (option == "yes");
     return 0;
 }

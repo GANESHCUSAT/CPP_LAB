@@ -1,6 +1,6 @@
 #include <iostream>
 #include <iomanip>
-using namespace std;
+
 class shop
 {
 private:
@@ -9,7 +9,7 @@ private:
     int item_code[15];
     int item_qty[15];
     int item_price[15];
-    string item_name[15];
+    std::string item_name[15];
 
 public:
     void add_item();
@@ -19,22 +19,23 @@ public:
 void shop::add_item()
 {
     count++;
-    cout << "enter the details of the item to be added\n";
-    cout << "enter the item code: ";
-    cin >> item_code[count];
-    cout << "enter the item name: ";
-    cin >> name;
+    std::cout << "enter the details of the item to be added\n";
+    std::cout << "enter the item code: ";
+    std::cin >> item_code[count];
+    std::cout << "enter the item name: ";
+    std::cin >> name;
     item_name[count] = name;
-    cout << "enter the item price: ";
-    cin >> item_price[count];
-    cout << "enter the number of item: ";
-    cin >> item_qty[count];
+    std::cout << "enter the item price: ";
+    std::cin >> item_price[count];
+    std::cout << "enter the number of item: ";
+    std::cin >> item_qty[count];
 }
 void shop::del_item()
 {
-    cout << "enter the details of the item to be removed\n";
-    cout << "enter the item code: ";
-    cin >> code;
+    int j = 0;
+    std::cout << "enter the details of the item to be removed\n";
+    std::cout << "enter the item code: ";
+    std::cin >> code;
     for (int i = 1; i <= count; i++)
     {
         if (item_code[i] == code)
@@ -42,51 +43,51 @@ void shop::del_item()
             item_qty[i] = 0;
             item_name[i] = "nil";
             item_price[i] = 0;
+            j = 1;
         }
-        else
-            (item_code[i] != code);
-        {
-            cout << "item not available";
-        }
+    }
+    if (j != 1)
+    {
+        std::cout << "item not available";
     }
 }
 void shop::display()
 {
-    cout << "              ***************LIST OF ITEMS**************\n"
-         << setw(13) << "code"
-         << setw(13) << "name"
-         << setw(13) << "qty"
-         << setw(13) << "price"
-         << setw(13) << "amount\n";
+    std::cout << "\n              ***************LIST OF ITEMS**************\n"
+              << std::setw(13) << "code"
+              << std::setw(13) << "name"
+              << std::setw(13) << "qty"
+              << std::setw(13) << "price"
+              << std::setw(13) << "amount\n";
     for (int i = 1; i <= count; i++)
     {
-        cout << setw(13) << item_code[i];
-        cout << setw(13) << item_name[i];
-        cout << setw(13) << item_qty[i];
-        cout << setw(13) << item_price[i];
-        cout << setw(13) << item_qty[i] * item_price[i];
-        cout << "\n";
+        std::cout << std::setw(13) << item_code[i];
+        std::cout << std::setw(13) << item_name[i];
+        std::cout << std::setw(13) << item_qty[i];
+        std::cout << std::setw(13) << item_price[i];
+        std::cout << std::setw(13) << item_qty[i] * item_price[i];
+        std::cout << "\n";
     }
     sum = 0;
     for (int i = 1; i <= count; i++)
     {
         sum = sum + item_qty[i] * item_price[i];
     }
-    cout << "\ntotal amount= " << sum;
+    std::cout << "\ntotal amount= " << sum;
 }
 int main()
 {
 
     int option;
-    string choice;
+    std::string choice;
     shop list;
     do
     {
-        cout << "***MAIN MENU***\n";
-        cout << "enter 1 for add an item \n"
-             << "enter 2 fo delete an item \n"
-             << "enter 3 for display the list \n";
-        cin >> option;
+        std::cout << "***MAIN MENU***\n";
+        std::cout << "enter 1 for add an item \n"
+                  << "enter 2 fo delete an item \n"
+                  << "enter 3 for display the list \n";
+        std::cin >> option;
         switch (option)
         {
         case 1:
@@ -99,8 +100,8 @@ int main()
             list.display();
             break;
         }
-        cout << "\ndo you want to continue(enter yes or no): ";
-        cin >> choice;
+        std::cout << "\ndo you want to continue(enter yes or no): ";
+        std::cin >> choice;
     } while (choice == "yes");
     return 0;
 }

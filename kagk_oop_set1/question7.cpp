@@ -1,5 +1,5 @@
 #include <iostream>
-using namespace std;
+
 class matrix
 {
 private:
@@ -36,19 +36,19 @@ matrix::matrix(int x, int y)
 }
 matrix matrix::recieve()
 {
-    cout << "enter the size of the matrix\n";
-    cout << "row: ";
-    cin >> m;
-    cout << "column: ";
-    cin >> n;
+    std::cout << "enter the size of the matrix\n";
+    std::cout << "row: ";
+    std::cin >> m;
+    std::cout << "column: ";
+    std::cin >> n;
     matrix a(m, n);
-    cout << "enter the matrix elements row by row:\n ";
+    std::cout << "enter the matrix elements row by row:\n ";
     int i, j, value;
     for (i = 0; i < m; i++)
     {
         for (j = 0; j < n; j++)
         {
-            cin >> value;
+            std::cin >> value;
             a.get_element(i, j, value);
         }
     }
@@ -72,7 +72,7 @@ void matrix::sum(matrix &a, matrix &b)
     }
     else
     {
-        cout << "invalid input";
+        std::cout << "invalid input";
     }
 }
 void matrix::mult(matrix &a, matrix &b)
@@ -97,7 +97,7 @@ void matrix::mult(matrix &a, matrix &b)
     }
     else
     {
-        cout << "invalid input";
+        std::cout << "invalid input";
     }
 }
 void matrix::trace(matrix a)
@@ -115,11 +115,11 @@ void matrix::trace(matrix a)
                 }
             }
         }
-        cout << "result= " << sum;
+        std::cout << "result= " << sum;
     }
     else
     {
-        cout << "invalid input";
+        std::cout << "invalid input";
     }
 }
 void matrix::transpose(matrix a)
@@ -131,21 +131,21 @@ void matrix::transpose(matrix a)
         for (int j = 0; j < a.col; j++)
         {
             value = p[i][j];
-            c.get_element(j, i, value);
+            c.get_element(j,i,value);
         }
     }
     c.show();
 }
 void matrix::show()
 {
-    cout << "result is:\n";
+    std::cout << "result is:\n";
     for (int i = 0; i < row; i++)
     {
         for (int j = 0; j < col; j++)
         {
-            cout << p[i][j] << " ";
+            std::cout << p[i][j] << " ";
         }
-        cout << "\n";
+        std::cout << "\n";
     }
 }
 
@@ -156,9 +156,9 @@ int main()
     string choice;
     do
     {
-        cout << "***MAIN MENU***\n";
-        cout << "1. enter 1 for addition of two matrix\n2. enter 2 to multiply two matrix\n3. enter 3 to find the transpose of the matrix\n4. enter 4 to find the trace of the matrix.\n";
-        cin >> option;
+        std::cout << "***MAIN MENU***\n";
+        std::cout << "1. enter 1 for addition of two matrix\n2. enter 2 to multiply two matrix\n3. enter 3 to find the transpose of the matrix\n4. enter 4 to find the trace of the matrix.\n";
+        std::cin >> option;
         if (option == 1)
         {
             matrix a1, a2, a3;
@@ -187,10 +187,10 @@ int main()
         }
         else
         {
-            cout << "invalid input";
+            std::cout << "invalid input";
         }
-        cout << "\n\ndo you want to continue(enter yes or no): ";
-        cin >> choice;
+        std::cout << "\n\ndo you want to continue(enter yes or no): ";
+        std::cin >> choice;
     } while (choice == "yes");
     return 0;
 }

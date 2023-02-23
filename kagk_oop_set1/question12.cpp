@@ -25,20 +25,20 @@ complex sum(complex c1, complex c2)
 }
 void complex::show()
 {
-    cout << real << "+" << imag << "i";
+    std::cout << real << "+" << imag << "i";
 }
 int main()
 {
     int real, imag;
-    cout << "enter the first complex number as real and imaginary respectively: ";
-    cin >> real >> imag;
+    std::cout << "enter the first complex number as real and imaginary respectively: ";
+    std::cin >> real >> imag;
     complex a(real, imag);
-    cout << "enter the second complex number as real and imaginary respectively: ";
-    cin >> real >> imag;
+    std::cout << "enter the second complex number as real and imaginary respectively: ";
+    std::cin >> real >> imag;
     complex b(real, imag);
     complex c;
     c = sum(a, b);
-    cout << "sum of entered complex numbers is: ";
+    std::cout << "sum of entered complex numbers is: ";
     c.show();
     return 0;
 }

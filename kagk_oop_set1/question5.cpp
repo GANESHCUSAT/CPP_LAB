@@ -1,5 +1,5 @@
 #include <iostream>
-using namespace std;
+
 class matrix
 {
 private:
@@ -39,31 +39,31 @@ matrix::matrix(int x, int y)
 int main()
 {
     int m, n;
-    cout << "enter the size of the matrix\n";
-    cout << "row: ";
-    cin >> m;
-    cout << "column: ";
-    cin >> n;
+    std::cout << "enter the size of the matrix\n";
+    std::cout << "row: ";
+    std::cin >> m;
+    std::cout << "column: ";
+    std::cin >> n;
     matrix A(m, n);
-    cout << "enter the matrix elements row by row:\n ";
+    std::cout << "enter the matrix elements row by row:\n ";
     int i, j, value;
     for (i = 0; i < m; i++)
     {
         for (j = 0; j < n; j++)
         {
-            cin >> value;
+            std::cin >> value;
             A.get_element(i, j, value);
         }
     }
-    cout << "entered matrix is:\n";
+    std::cout << "entered matrix is:\n";
     for (i = 0; i < m; i++)
     {
         for (j = 0; j < n; j++)
         {
-            cout << A.put_element(i, j);
-            cout << " ";
+            std::cout << A.put_element(i, j);
+            std::cout << " ";
         }
-        cout << "\n";
+        std::cout << "\n";
     }
     return 0;
 }

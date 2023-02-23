@@ -1,1 +1,2 @@
-c.show();
+
+    p = new int *[row];

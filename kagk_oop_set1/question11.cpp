@@ -9,12 +9,12 @@ private:
 public:
     void input(void)
     {
-        cout << "\nenter the value 1: ";
-        cin >> value1;
+        std::cout << "\nenter the value 1: ";
+        std::cin >> value1;
     }
     void display(void)
     {
-        cout << "\nvalue 1 = " << value1;
+        std::cout << "\nvalue 1 = " << value1;
     }
     friend void exchange(class_1 &a, class_2 &b);
 };
@@ -26,12 +26,12 @@ private:
 public:
     void input(void)
     {
-        cout << "\nenter the value 2: ";
-        cin >> value2;
+        std::cout << "\nenter the value 2: ";
+        std::cin >> value2;
     }
     void display(void)
     {
-        cout << "\nvalue 2 = " << value2;
+        std::cout << "\nvalue 2 = " << value2;
     }
     friend void exchange(class_1 &, class_2 &);
 };
@@ -48,11 +48,11 @@ int main()
     class_2 b;
     a.input();
     b.input();
-    cout << "\nvalues before exchanging: ";
+    std::cout << "\nvalues before exchanging: ";
     a.display();
     b.display();
     exchange(a, b);
-    cout << "\nvalues after exchanging: ";
+    std::cout << "\nvalues after exchanging: ";
     a.display();
     b.display();
     return 0;
