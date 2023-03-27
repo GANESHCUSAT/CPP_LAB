@@ -1,0 +1,2 @@
+
+    p = new int *[row];
