@@ -83,7 +83,10 @@ int main()
         }
         cout << "\ndo you want to continue with another set of complex numbers (Enter yes/no): ";
         cin >> option;
-
+        if (option == "no")
+        {
+            std::cout << "***exited succesfully***";
+        }
     } while (option == "yes");
     return 0;
 }

@@ -120,6 +120,11 @@ int main()
         }
         cout << "\ndo you want to continue(enter yes or no): ";
         cin >> choice;
+        if (choice== "no")
+        {
+            cout << "***exited succesfully***";
+        }
     } while (choice == "yes");
+   
     return 0;
 }

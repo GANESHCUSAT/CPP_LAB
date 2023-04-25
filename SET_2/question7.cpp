@@ -64,9 +64,9 @@ public:
    }
 };
 int main()
-{
+{   
    int a, b, c;
-   cout << "enter the variable values of each class:\n";
+   cout << "enter the variable values(integer type) of each class:\n";
    cout << "enter alpha class Variable:";
    cin >> a;
    cout << "enter beta class Variable:";

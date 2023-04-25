@@ -66,16 +66,25 @@ public:
 };
 
 int main()
-{
-   
-    int studentsA, studentsB, teachers, UniversityStudents;
-    cout << "No of Students in class 10: section A: " ;
-    cin >> studentsA;
-    cout << "No of Students in class 10: section B: ";
-    cin >> studentsB;
-    cout << "No of Teachers in class 10: ";
-    cin >> teachers;
-    SCHOOL JNV(studentsA, studentsB, teachers);
-    JNV.display() ;
+{   string option;
+    do
+    {
+        int studentsA, studentsB, teachers, UniversityStudents;
+        cout << "No of Students in class 10: section A: ";
+        cin >> studentsA;
+        cout << "No of Students in class 10: section B: ";
+        cin >> studentsB;
+        cout << "No of Teachers in class 10: ";
+        cin >> teachers;
+        SCHOOL JNV(studentsA, studentsB, teachers);
+        JNV.display();
+        cout << "\ndo you want to continue(Enter yes/no): ";
+        cin >> option;
+        if (option == "no")
+        {
+            cout << "***exited succesfully***";
+        }
+    } while (option == "yes");
+
     return 0;
 }

@@ -144,6 +144,10 @@ int main()
         }
         cout << "\n\ndo you want to continue(enter yes or no): ";
         cin >> choice;
+         if(choice =="no")
+        {
+            std::cout<<"***exited succesfully***";
+        }
     } while (choice == "yes");
     return 0;
 }
