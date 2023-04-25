@@ -4,6 +4,7 @@ using namespace std;
 template <class T>
 class Calculator
 {
+private:
     T num1, num2;
 
 public:
@@ -58,7 +59,6 @@ int main()
             cin >> num1 >> num2;
             Calculator<float> c1(num1, num2);
             c1.display_result();
-           
         }
         cout << "\nDo you want to continue(enter yes/no): ";
         cin >> choice;
